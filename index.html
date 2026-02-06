@@ -99,6 +99,7 @@
               'bounce-slight': 'bounce-slight 2s infinite',
               'float': 'float 6s ease-in-out infinite',
               'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'slide-in-right': 'slideInRight 1s ease-out forwards',
               'morph': 'morph 8s ease-in-out infinite',
             },
             keyframes: {
@@ -118,6 +119,10 @@
                 '0%': { opacity: '0', transform: 'translateY(20px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
+              slideInRight: {
+                '0%': { opacity: '0', transform: 'translateX(50px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
               morph: {
                 '0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
                 '50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
@@ -136,6 +141,19 @@
       .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+      }
+
+      /* Text Shadow for Readability on Images */
+      .text-shadow-white {
+        text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+      }
+      .text-shadow-sm {
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      }
+      
+      /* Outline text for strong emphasis */
+      .text-outline-navy {
+        -webkit-text-stroke: 1px #1A3678;
       }
 
       /* Noise Texture for Problem Section */
@@ -166,22 +184,6 @@
         height: 0px;
         opacity: 0;
       }
-
-      /* Floating Bubbles Animation */
-      .bubble {
-        position: absolute;
-        bottom: -20px;
-        background-color: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        animation: rise 10s infinite ease-in;
-        z-index: 0;
-        pointer-events: none;
-      }
-      @keyframes rise {
-        0% { bottom: -20px; transform: translateX(0); opacity: 0; }
-        50% { opacity: 0.6; }
-        100% { bottom: 100%; transform: translateX(-20px); opacity: 0; }
-      }
     </style>
   <script type="importmap">
 {
@@ -194,8 +196,11 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
-  </body>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

@@ -10,7 +10,7 @@ import {
   Mail, 
   Camera,
   Star,
-  ArrowDown,
+  ArrowDown, 
   Shield,
   Crown,
   AlertTriangle,
@@ -49,12 +49,14 @@ import { FORM_AREAS, FORM_AGES, FormData } from './types';
 const SOTOPIKA_LOGO_TEXT = "https://placehold.co/300x80/transparent/1A3678?text=SOTOPIKA+Logo";
 const HERO_BEFORE = "https://placehold.co/600x600/333333/FFFFFF?text=Before:+Dirty";
 const HERO_AFTER = "https://placehold.co/600x600/1A3678/FFFFFF?text=After:+Clean";
-const SOTOPIKA_CHAR = "https://placehold.co/400x400/transparent/1A3678?text=Sotopika+Dog";
+// UPDATED: New Full Body Character Image (Raw URL)
+const SOTOPIKA_CHAR = "https://github.com/ryoto2323/-LP/blob/main/B3DF7B0A-266E-4D8E-B542-AD7E7C54AE0E.png?raw=true";
 const DIRTY_WALL_BG = "https://placehold.co/800x400/333333/666666?text=Dirty+Wall+Texture";
 const STAFF_IMAGE = "https://placehold.co/150x150/1A3678/FFFFFF?text=Staff";
 const MOSS_IMG = "https://placehold.co/400x300/5c6b45/ffffff?text=苔汚れ";
 const STAIN_IMG = "https://placehold.co/400x300/444444/ffffff?text=黒ずみ";
-const CLEAN_HOUSE_BG = "https://placehold.co/1920x1080/e0f2fe/1e3a8a?text=Beautiful+Clean+Home+Background";
+// UPDATED: FV Background Image
+const CLEAN_HOUSE_BG = "https://github.com/ryoto2323/-LP/blob/main/Gemini_Generated_Image_ya8f0ya8f0ya8f0y%20(1).png?raw=true";
 
 // --- Audio Effect ---
 const playPopSound = () => {
@@ -798,8 +800,8 @@ export default function App() {
         </Container>
       </header>
 
-      {/* 1. First View (Hero) - [Restored] Full Background Style */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-24 relative overflow-hidden min-h-[550px] md:min-h-[600px] flex items-center">
+      {/* 1. First View (Hero) - Restored to Preferred Design */}
+      <section className="pt-24 pb-0 md:pt-32 relative overflow-hidden min-h-[660px] md:min-h-[800px] flex items-end">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
            <img 
@@ -810,35 +812,45 @@ export default function App() {
              fetchPriority="high"
              className="w-full h-full object-cover" 
            />
-           <div className="absolute inset-0 bg-gradient-to-r from-sky-100/95 via-white/90 to-white/40 md:to-transparent"></div>
+           {/* Adjusted gradient to be stronger on left for text readability */}
+           <div className="absolute inset-0 bg-gradient-to-r from-sky-100/95 via-white/70 to-transparent"></div>
            <div className="absolute inset-0 bg-[radial-gradient(#FDB813_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-[0.1]"></div>
         </div>
 
-        <Container className="relative z-10">
-          <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
+        {/* Character Image - Restored: h-[70%] mobile, right-[-15%] mobile */}
+        <img 
+          src={SOTOPIKA_CHAR}
+          alt="Main Character" 
+          className="pointer-events-none transition-all duration-300 h-[70%] md:h-[100%] absolute bottom-0 -right-[15%] md:right-0 z-[1] object-contain max-w-none w-auto" 
+        />
+
+        <Container className="relative z-20 w-full h-full flex flex-col justify-end pb-0">
+          <div className="flex flex-col md:flex-row items-end h-full relative">
+            
             {/* Left Content */}
-            <div className="flex-1 text-center md:text-left z-10 w-full">
+            <div className="flex-1 text-left z-30 w-full md:max-w-[55%] mb-20 md:mb-24 relative">
               <FadeIn>
+                {/* Main Copy with Text Shadow for readability */}
                 <h1 className="font-rounded font-extrabold text-sotopika-navy leading-tight mb-6 drop-shadow-sm">
-                   <span className="block text-3xl md:text-6xl text-sotopika-yellow drop-shadow-md mb-2 text-shadow-white">
+                   <span className="block text-3xl md:text-5xl lg:text-6xl text-sotopika-yellow drop-shadow-md mb-3 text-shadow-white">
                      たった1日で
                    </span>
-                   <span className="text-3xl md:text-5xl lg:text-6xl inline-block">
+                   <span className="text-4xl md:text-6xl lg:text-7xl inline-block text-shadow-white leading-tight">
                      苔と黒ずみで<br/>
                      汚れた我が家を<br/>
                    </span>
-                   <span className="relative inline-block mt-2">
-                      <span className="text-5xl md:text-7xl text-sotopika-yellow drop-shadow-md z-10 relative font-black">ピカピカ</span>
-                      <span className="text-3xl md:text-5xl lg:text-6xl text-sotopika-navy">に</span>
-                      <SparkleIcon className="absolute -top-6 -right-8 w-8 h-8 md:w-10 md:h-10 text-yellow-400 animate-pulse" />
+                   <span className="relative inline-block mt-4">
+                      <span className="text-6xl md:text-8xl lg:text-9xl text-sotopika-yellow drop-shadow-md z-10 relative font-black text-shadow-white">ピカピカ</span>
+                      <span className="text-4xl md:text-6xl lg:text-7xl text-sotopika-navy text-shadow-white">に</span>
+                      <SparkleIcon className="absolute -top-6 -right-8 w-10 h-10 md:w-16 md:h-16 text-yellow-400 animate-pulse" />
                    </span>
                 </h1>
 
-                {/* Redesigned Text Block: Marker Highlight Style */}
-                <div className="mb-8 relative inline-block">
-                    <p className="text-lg md:text-2xl text-sotopika-navy font-bold leading-relaxed">
+                {/* Sub Copy with Marker Highlight */}
+                <div className="mb-8 md:mb-12 relative inline-block">
+                    <p className="text-xl md:text-3xl text-sotopika-navy font-bold leading-relaxed text-shadow-white">
                         <span className="relative inline-block px-1 mx-1">
-                            <span className="absolute inset-0 bg-yellow-300 -skew-x-12 opacity-60 rounded-sm"></span>
+                            <span className="absolute inset-0 bg-yellow-300 -skew-x-12 opacity-80 rounded-sm"></span>
                             <span className="relative z-10 font-black">塗装工事の半分以下の費用</span>
                         </span>
                         で<br/>
@@ -846,44 +858,24 @@ export default function App() {
                     </p>
                 </div>
 
-                {/* Benefits Badges - Fixed & Optimized Size */}
-                <div className="flex flex-nowrap justify-center items-center gap-1 md:gap-6 mb-8 md:mb-10 w-full px-0">
+                {/* Benefits Badges - Scroll on mobile to prevent overlap */}
+                <div className="flex flex-nowrap justify-start items-center gap-2 mb-8 md:mb-12 w-full overflow-x-auto no-scrollbar pb-2 md:pb-0 px-0 relative z-10">
                     <BenefitBadge sub="外壁一面" title="1万円〜" />
                     <BenefitBadge sub="安心の" title="90日間保証" />
                     <BenefitBadge sub="まずは" title="無料お試し" />
                 </div>
 
-                <div className="max-w-md mx-auto md:mx-0 relative mt-4 md:mt-0">
-                  <CTAButton fullWidth animated>
+                <div className="max-w-md mx-0 relative z-30">
+                  <CTAButton fullWidth animated className="text-xl py-4 shadow-xl">
                     <CTAText />
                   </CTAButton>
                 </div>
               </FadeIn>
             </div>
 
-            {/* Right Content */}
-            <div className="flex-1 relative w-full max-w-lg mx-auto md:max-w-none flex flex-col items-center md:items-end justify-center">
-              <FadeIn delay={200} className="relative z-10 text-right w-full">
-                   <div className="relative flex flex-col items-center md:items-end">
-                      <div className="text-sotopika-navy font-bold text-base md:text-3xl tracking-widest text-center md:text-right bg-white/90 inline-block px-4 md:px-6 py-1 rounded-full backdrop-blur-sm mb-4 shadow-sm whitespace-nowrap">
-                        外壁洗浄専門店
-                      </div>
-                      <div className="text-[13vw] md:text-8xl lg:text-9xl font-rounded font-extrabold text-sotopika-navy leading-none tracking-tighter drop-shadow-xl text-center md:text-right whitespace-nowrap">
-                        ソトピカ
-                      </div>
-                   </div>
-                   
-                   <div className="flex justify-center md:justify-end -mt-4 md:mt-4">
-                     <img 
-                       src={SOTOPIKA_CHAR} 
-                       alt="ソトピカくん" 
-                       width="400"
-                       height="400"
-                       className="w-32 h-32 md:w-64 md:h-64 object-contain z-20 drop-shadow-2xl animate-bounce-slight" 
-                     />
-                   </div>
-              </FadeIn>
-            </div>
+            {/* Right Content - Character (Unified for Mobile & PC) */}
+            {/* Image has been moved to root of section for absolute positioning outside container */}
+
           </div>
         </Container>
       </section>
@@ -1090,52 +1082,54 @@ export default function App() {
         </Container>
       </Section>
 
-      {/* 4. Comparison Table - [PRO] Redesigned for Winner Effect */}
+      {/* 4. Comparison Table - [PRO] Redesigned for Alignment Stability */}
       <Section variant="pale">
         <Container>
           <Heading center>塗装工事との比較</Heading>
           <div className="overflow-visible max-w-4xl mx-auto pt-8 pb-4">
              {/* Header Row - Mobile Optimized Grid */}
-            <div className="grid grid-cols-[0.8fr_1.3fr_1fr] md:grid-cols-3 items-end mb-2 text-center text-xs md:text-lg font-bold relative z-20">
+            <div className="grid grid-cols-[0.8fr_1.3fr_1fr] md:grid-cols-3 items-end mb-4 text-center text-xs md:text-lg font-bold relative z-20 gap-2 md:gap-4">
                <div className="pb-3 text-sotopika-navy opacity-50"></div>
                {/* Popped Up Header */}
-               <div className="bg-sotopika-yellow text-sotopika-navy rounded-t-xl py-3 md:py-4 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] z-20 scale-105 origin-bottom relative border-t border-x border-white/50">
+               <div className="bg-sotopika-yellow text-sotopika-navy rounded-t-xl py-3 md:py-4 shadow-lg z-20 scale-105 origin-bottom relative border-t border-x border-white/50">
                  <span className="text-sm md:text-xl block font-black">外壁洗浄</span>
                  <span className="text-[10px] md:text-sm block">（ソトピカ）</span>
                  {/* Winner Crown */}
-                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap animate-bounce-slight">
+                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap animate-bounce-slight border-2 border-white">
                    圧倒的コスパ
                  </div>
                </div>
                <div className="pb-3 text-black font-black text-sm md:text-lg">塗装工事</div>
             </div>
 
-            <div className="relative">
-               {/* [PRO] Highlight Column Background Layer - Creates the 'Winner' card effect */}
-               <div className="absolute top-0 bottom-0 left-[27.6%] right-[32%] bg-white rounded-b-xl shadow-[0_10px_30px_rgba(253,184,19,0.3)] z-0 scale-[1.05] border-x-4 border-b-4 border-sotopika-yellow transform origin-top"></div>
-
-               <div className="bg-white/50 rounded-b-3xl rounded-tl-3xl shadow-sm overflow-hidden border-t-0 z-10 relative">
-                 <div className="divide-y divide-gray-200 text-xs md:text-base relative z-20">
-                  {[
+            <div className="relative space-y-2">
+               {/* Rows with grid layout to ensure perfect alignment */}
+               {[
                     { label: "費用\n(戸建て平均)", pika: "4〜25万円", pikaSub: "塗装の半分以下", paint: "80〜120万円" },
                     { label: "工期", pika: "数時間〜1日", pikaSub: "", paint: "2〜3週間" },
                     { label: "負担", pika: "足場なし。\n生活はそのまま", pikaSub: "", paint: "足場設置で大掛かり" },
                     { label: "即効性", pika: "その日のうちに\nピカピカ", pikaSub: "", paint: "完了まで長期間の我慢" },
-                  ].map((row, i) => (
-                    <FadeIn key={i} delay={i * 100}>
-                      <div className="grid grid-cols-[0.8fr_1.3fr_1fr] md:grid-cols-3 items-center text-center py-5 md:py-7">
-                        <div className="font-bold text-gray-600 px-1 md:px-2 whitespace-pre-wrap">{row.label}</div>
-                        {/* Winner Cell */}
-                        <div className="font-black text-sotopika-navy flex flex-col justify-center px-1 md:px-2 relative">
-                          <span className="text-base md:text-2xl text-sotopika-navy">{row.pika}</span>
-                          {row.pikaSub && <span className="text-[10px] md:text-xs text-red-500 font-bold block mt-1 bg-red-100/50 rounded px-1 mx-auto">{row.pikaSub}</span>}
-                        </div>
-                        <div className="text-black font-bold px-1 md:px-2 whitespace-pre-wrap">{row.paint}</div>
+               ].map((row, i) => (
+                 <FadeIn key={i} delay={i * 100}>
+                   <div className="grid grid-cols-[0.8fr_1.3fr_1fr] md:grid-cols-3 items-stretch gap-2 md:gap-4">
+                      {/* Label */}
+                      <div className="bg-white rounded-l-lg md:rounded-lg p-3 md:p-5 flex items-center justify-center text-center font-bold text-gray-600 text-xs md:text-base whitespace-pre-wrap shadow-sm">
+                        {row.label}
                       </div>
-                    </FadeIn>
-                  ))}
-                </div>
-              </div>
+                      
+                      {/* Winner Cell - Highlighted */}
+                      <div className="bg-white rounded-lg p-3 md:p-5 flex flex-col items-center justify-center text-center font-black text-sotopika-navy border-2 border-sotopika-yellow shadow-md scale-105 relative z-10">
+                        <span className="text-base md:text-2xl text-sotopika-navy">{row.pika}</span>
+                        {row.pikaSub && <span className="text-[10px] md:text-xs text-red-500 font-bold block mt-1 bg-red-100/50 rounded px-1 mx-auto">{row.pikaSub}</span>}
+                      </div>
+
+                      {/* Loser Cell */}
+                      <div className="bg-gray-100 rounded-r-lg md:rounded-lg p-3 md:p-5 flex items-center justify-center text-center font-bold text-gray-500 text-xs md:text-base whitespace-pre-wrap">
+                        {row.paint}
+                      </div>
+                   </div>
+                 </FadeIn>
+               ))}
             </div>
           </div>
         </Container>
